@@ -1,0 +1,31 @@
+{
+  "name": "sequel",
+  "version": "0.0.7",
+  "description": "Professional tool for generating random sequences",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha index.test.js"
+  },
+  "keywords": [
+    "testing",
+    "rpg",
+    "test",
+    "json",
+    "sequence",
+    "sequences",
+    "schema",
+    "mongoose"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:turbokirichenko/sequel.git"
+  },
+  "bugs": {
+    "url": "git@github.com:turbokirichenko/sequel/issues"
+  },
+  "author": "turbokirichenko",
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "^10.0.0"
+  }
+}

@@ -1,0 +1,11 @@
+{
+	"alphabet" : "0123456789",
+	"default_length" : 32,
+	"maxNumber" : 65536,
+	"minNumber" : 0,
+	"integer": true,
+	"probability": 0.5,
+	"needs": true,
+	"chance": 0.5,
+	"array_range": [1, 10]
+}
