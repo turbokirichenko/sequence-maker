@@ -1,4 +1,4 @@
-# sequel
+# Sequence Maker
 ### Professional tool for generating random sequences
 ---
 ![alt text](https://img.shields.io/github/package-json/v/turbokirichenko/sequence-maker?style=for-the-badge)
