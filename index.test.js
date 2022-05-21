@@ -160,5 +160,20 @@ describe('sequence tests', () => {
 		const obj = correctExample[0];
 		tq("string", errorExample[0]);
 		tq("string", obj.name);
-	})
+	});
+	it('write to file', () => {
+		const sequences = new generator({});
+		const List = sequences.List;
+		const result = sequences.write({
+			unit: {
+				id: String,
+				race: List(["Orc", "Dwarf", "Human", "Elf", "Unicorn"]),
+			}
+		}, [1, 4], 'test.json');
+		
+		const jsonFile = require('./test.json');
+		const obj = jsonFile[0];
+		//check
+		eq(obj.unit.race, "Orc", "Dwarf", "Human", "Elf", "Unicorn");
+	});
 })

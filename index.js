@@ -6,11 +6,11 @@ function sequenceGenerator () {
 	//
 	let Schema = {};
 	let Context = {};
-	let Props = {};
 	//
 	this.clone = Clone;
 	this.go = GoPath;
 	this.make = Make;
+	this.write = Write;
 	//types
 	this.Linker = Linker;
 	this.List = RandomValueFromList;
@@ -111,7 +111,6 @@ function sequenceGenerator () {
 		    return str;
 		};
 		return (props = {}) => {
-			this.props = Props;
 			const len =  eq("function", props.len) ? props.len() : (config.default_length || 65536);
 			const need = eq("function", props.need) ? props.need() : (config.needs || false);
 			const chance = eq("function", props.chance) ? props.chance() : (config.chance || 0.5);
@@ -132,7 +131,6 @@ function sequenceGenerator () {
 		};
 		//
 		return (props = {}) => {
-			this.props = Props;
 			const max = eq("function", props.max) ? props.max() : (config.maxNumber || 65536);
 			const min =  eq("function", props.min) ? props.min() : (config.minNumber || 0);
 			const int = eq("function", props.int) ? props.int() : (config.integer || true);
@@ -155,7 +153,6 @@ function sequenceGenerator () {
 		    (prob - Math.random() > 0);
 		//
 		return (props = {}) => {
-			this.props = Props;
 			const prob = eq("function", props.prob) ? props.prob() : (config.probability || 0.5);
 			const need = eq("function", props.need) ? props.need() : (config.needs || false);
 			const chance = eq("function", props.chance) ? props.chance() : (config.chance || 0.5);
@@ -171,7 +168,6 @@ function sequenceGenerator () {
 	//function builder
 	function MakeFunc (func, schema = {}) {
 		//alphabet
-		this.props = Props;
 		const dec = "0123456789abcdef";
 		const n = func.name;
 		switch (n) {
@@ -205,7 +201,6 @@ function sequenceGenerator () {
 	function TransformArr (schema) {
 		//
 		let array = [];
-		this.props = Props;
 		const minSize = config.array_range[0] || 0;
 		const maxSize = config.array_range[1] || 10;
 		const size = Math.floor(Math.random() * (maxSize - minSize) + minSize);
@@ -296,7 +291,6 @@ function sequenceGenerator () {
 	//Make and upload
 	//maker
 	function Make (schema, range) {
-		Props = this.props;
 		this.schema = schema;
 		const minSize = range[0] || (range || 1);
 		const maxSize = range[1] || (range || 1);
@@ -314,6 +308,34 @@ function sequenceGenerator () {
 			Context = {};
 		}
 		return sequence;
+	};
+	//
+	function Write (schema, range, filename) {
+		//
+		if(!filename) throw new Error ('Filename is required!!!');
+		//
+		this.schema = schema;
+		const minSize = range[0] || (range || 1);
+		const maxSize = range[1] || (range || 1);
+		const size = Math.floor(Math.random() * (maxSize-minSize) + minSize);
+		//
+		const writeStream = fs.createWriteStream(filename);
+		writeStream.write('[\n');
+		//
+		for (let i = 0; i < size; ++i) {
+			//compute context
+			Context = Transform(this.schema);
+			Schema = this.schema;
+			Context = Complete(Build(Context));
+			//compute result
+			Context = Finish(Context);
+			//push to sequence
+			writeStream.write(JSON.stringify(Context));
+			if (i != size - 1) writeStream.write(',\n');
+			Context = {};
+		}
+		//
+		writeStream.end('\n]');
 	}
 };
 

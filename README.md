@@ -1,5 +1,6 @@
 # Sequence Maker
-### Professional tool for generating random sequences
+### Professional tool for generating random sequences.
+### Use in your project tests.
 ---
 ![alt text](https://img.shields.io/github/repo-size/turbokirichenko/sequence-maker?style=for-the-badge)
 ![alt text](https://img.shields.io/github/package-json/v/turbokirichenko/sequence-maker?style=for-the-badge)
@@ -222,13 +223,24 @@ console.log(customTypesObjs);
 */
 ```
 
+## Write data to file
+```js
+//write schema to file by write method
+sequence.write(
+	{
+		/* schema ... */
+	},
+	555, /* size of sequence */
+	'myFile.json' /* file name */
+)
+```
+
 ## Changing default config
 
-sequence-maker/config.json
+### sequence-maker/config.json
 
 ---
 
 ## More Examples ...
 
-[docs](https://github.com/turbokirichenko/sequel/blob/main/index.test.js)
-
+### [docs](https://github.com/turbokirichenko/sequel/blob/main/index.test.js)

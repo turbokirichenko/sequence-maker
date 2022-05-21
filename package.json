@@ -1,6 +1,6 @@
 {
   "name": "sequence-maker",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Professional tool for generating random sequences",
   "main": "index.js",
   "scripts": {
