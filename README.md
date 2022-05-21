@@ -2,7 +2,7 @@
 ### Professional tool for generating random sequences
 ---
 ![alt text](https://img.shields.io/github/repo-size/turbokirichenko/sequence-maker?style=for-the-badge)
-![alt text](https://img.shields.io/github/package-json/v/turbokirichenko/sequence-maker)
+![alt text](https://img.shields.io/github/package-json/v/turbokirichenko/sequence-maker?style=for-the-badge)
 ---
 ## Getting Started
 ```
