@@ -1,6 +1,6 @@
 {
   "name": "sequence-maker",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Professional tool for generating random sequences",
   "main": "index.js",
   "scripts": {
@@ -18,10 +18,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:turbokirichenko/sequel.git"
+    "url": "git@github.com:turbokirichenko/sequence-maker.git"
   },
   "bugs": {
-    "url": "git@github.com:turbokirichenko/sequel/issues"
+    "url": "git@github.com:turbokirichenko/sequence-maker/issues"
   },
   "author": "turbokirichenko",
   "license": "MIT",
