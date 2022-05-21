@@ -1,28 +1,28 @@
 # sequel
 ### Professional tool for generating random sequences
 ---
-![alt text](https://img.shields.io/github/package-json/v/turbokirichenko/sequel?style=for-the-badge)
-![alt text](https://img.shields.io/github/repo-size/turbokirichenko/sequel?style=for-the-badge)
+![alt text](https://img.shields.io/github/package-json/v/turbokirichenko/sequence-maker?style=for-the-badge)
+![alt text](https://img.shields.io/github/repo-size/turbokirichenko/sequence-maker?style=for-the-badge)
 ---
 ## Getting Started
 ```
-$ npm i sequel --save-dev
+$ npm i sequence-maker --save-dev
 
 ```
-## Creating sequences maker
+## Creating sequence maker
 ```js
 
-const sequel = require('sequel');
+const sequenceMaker = require('sequence-maker');
 
 //create sequenceMaker
-const sequenceMaker = new sequel();
+const sequence = new sequenceMaker();
 ```
 
 ## Simple example
 ```js
 
 //simple: generates Random level
-const simpleExample = sequenceMaker.make(
+const simpleExample = sequence.make(
 	{
 		head: "Level of Unit", // constant phrase
 		level: { // set type
@@ -60,7 +60,7 @@ console.log(simpleExample);
 ## Commonly example
 ```js
 //medium: Object from object
-const mediumExample = sequenceMaker.make(
+const mediumExample = sequence.make(
 	{
 		parent: { // parent
 			name: String, // set type without opts
@@ -106,7 +106,7 @@ console.log(mediumExample);
 
 ```js
 //create array from object
-const createArray = sequenceMaker.make(
+const createArray = sequence.make(
 	{
 		todo: [{
 			text: "don't call your ex!!!",
@@ -151,7 +151,7 @@ const Linker = sequenceMaker.Linker; // copy value from object
 const List = sequenceMaker.List; // random value taken from list (MATCHES IS POSSIBLE)
 const UniqueList = sequenceMaker.UniqueList; // random value taken from list (MATCHES EXCLUDED)
 
-const extremeExample = sequenceMaker.make(
+const extremeExample = sequence.make(
 	{
 		unit: {
 			name: UniqueList(["Theodor", "Immanuil", "Pheodor", "Sophia"]), // set type
@@ -186,7 +186,7 @@ const MyCustomType = (opts) => { // opts: required
 	return "This is a bad password: " + string;
 }
 
-const customTypesObjs = sequenceMaker.make(
+const customTypesObjs = sequence.make(
 	{
 		log: {
 			type: MyCustomType, // set your custom type
@@ -224,7 +224,7 @@ console.log(customTypesObjs);
 
 ## Changing default config
 
-sequence/config.json
+sequence-maker/config.json
 
 ---
 

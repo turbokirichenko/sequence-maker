@@ -1,5 +1,5 @@
 {
-	"alphabet" : "0123456789",
+	"alphabet" : "abcdef0123456789",
 	"default_length" : 32,
 	"maxNumber" : 65536,
 	"minNumber" : 0,

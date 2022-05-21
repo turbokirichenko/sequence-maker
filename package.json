@@ -1,5 +1,5 @@
 {
-  "name": "sequel",
+  "name": "sequence-maker",
   "version": "0.0.7",
   "description": "Professional tool for generating random sequences",
   "main": "index.js",
